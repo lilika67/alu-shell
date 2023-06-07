@@ -10,10 +10,10 @@ count=1
 while [ $count -le 20 ]
 do
  echo "$count"
- case $count ln
- "4"} echo "bad luck from China";;
- "9"} echo "bad luck from Japan";;
- "17"} echo "bad luck from Italy";;
+ case $count in
+ "4") echo "bad luck from China";;
+ "9") echo "bad luck from Japan";;
+ "17") echo "bad luck from Italy";;
  case
 (( count++ ))
 done
