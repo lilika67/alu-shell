@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 # Clock
 H=0
 while [ $H -le 12 ]
