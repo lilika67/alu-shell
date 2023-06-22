@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
-# Using SIGNALS and management with processes.
-
-FILE="/var/run/holbertonscript.pid"
-
-function clean_up()
-{
-    rm -rf $FILE
-    if $1;
-    then
-	echo "I hate the kill command"
-    fi
+# Bash script
+echo $$ > /var/run/myscript.pid
+term() {
+    echo "I hate the kill command"
+    rm /var/run/myscript.pid
     exit
 }
-
-echo "$$" > $FILE
-
-trap clean_up "true" SIGTERM
-trap clean_up "false" SIGQUIT
-trap 'echo "Y U no love me?!"' SIGINT
-
+int() {
+    echo "Y U no love me?!"
+}
+quit() {
+    rm /var/run/myscript.pid
+    exit
+}
+trap int SIGINT
+trap quit SIGQUIT
+trap term SIGTERM
 while true;
 do
     echo "To infinity and beyond"
+    sleep 2
 done
