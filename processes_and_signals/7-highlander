@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-#Write a Bash script that displays
-while true
+# Bash script that displays
+remove() {
+    echo "I am invincible!!!"
+}
+trap remove SIGTERM
+while true;
 do
-	printf "To infinity and beyond\n"
-	sleep 2
-	printf "I am invincible!!!\n" 14
+    echo "To infinity and beyond"
+    sleep 2
 done
